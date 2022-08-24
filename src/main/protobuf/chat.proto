@@ -1,0 +1,21 @@
+syntax = "proto3";
+package com.etsy.core.grpc.threadpools;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
+message GreetRequest {
+  string username = 1;
+  string name = 2;
+}
+
+message ChatMessage {
+  string username = 1;
+  string data = 2;
+
+  int64 time = 3;
+}
+
+service ChatService {
+  rpc Greet (GreetRequest) returns (ChatMessage);
+}
